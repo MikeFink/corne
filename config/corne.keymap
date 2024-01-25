@@ -16,6 +16,27 @@
             #binding-cells = <0>;
             bindings = <&kp GRAVE>, <&kp ESCAPE>;
         };
+
+        td_gui: td_gui {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_GUI";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_SHIFT>, <&kp LEFT_GUI>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        L_bootloader {
+            bindings = <&bootloader>;
+            key-positions = <0 38 36>;
+        };
+
+        R_bootloader {
+            bindings = <&bootloader>;
+            key-positions = <11 41 39>;
+        };
     };
 
     keymap {
@@ -30,19 +51,19 @@
 
             display-name = "Base";
             bindings = <
-&td_grave  &kp Q  &kp W  &kp F     &kp P          &kp B          &kp J        &kp L    &kp U            &kp Y    &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&kp TAB    &kp A  &kp R  &kp S     &kp T          &kp G          &kp M        &kp N    &kp E            &kp I    &kp O             &kp SQT
-&kp LCTRL  &kp Z  &kp X  &kp C     &kp D          &kp V          &kp K        &kp H    &kp COMMA        &kp DOT  &kp FSLH          &kp SEMICOLON
-                         &kp LGUI  &kp BACKSPACE  &lt 1 SPACE    &lt 2 ENTER  &kp DEL  &kp RIGHT_SHIFT
+&td_grave  &kp Q  &kp W  &kp F    &kp P          &kp B          &kp J        &kp L    &kp U            &kp Y    &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+&kp TAB    &kp A  &kp R  &kp S    &kp T          &kp G          &kp M        &kp N    &kp E            &kp I    &kp O             &kp SQT
+&kp LCTRL  &kp Z  &kp X  &kp C    &kp D          &kp V          &kp K        &kp H    &kp COMMA        &kp DOT  &kp FSLH          &kp SEMICOLON
+                         &td_gui  &kp BACKSPACE  &lt 1 SPACE    &lt 2 ENTER  &kp DEL  &kp RIGHT_SHIFT
             >;
         };
 
         layer_2 {
             bindings = <
-&trans        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5    &kp NUMBER_6  &kp N7       &kp N8  &kp N9  &kp N0  &trans
-&kp CAPS      &trans        &trans        &trans        &trans        &trans    &trans        &trans       &trans  &trans  &trans  &trans
-&kp LEFT_ALT  &trans        &bt BT_PRV    &bt BT_NXT    &bootloader   &trans    &trans        &bootloader  &trans  &trans  &trans  &trans
-                                          &trans        &trans        &trans    &trans        &trans       &trans
+&trans        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5    &kp NUMBER_6  &kp N7  &kp N8  &kp N9  &kp N0  &trans
+&kp CAPS      &trans        &trans        &trans        &trans        &trans    &trans        &trans  &trans  &trans  &trans  &trans
+&kp LEFT_ALT  &trans        &bt BT_PRV    &bt BT_NXT    &trans        &trans    &trans        &trans  &trans  &trans  &trans  &trans
+                                          &trans        &trans        &trans    &trans        &trans  &trans
             >;
         };
 
